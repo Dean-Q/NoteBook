@@ -102,9 +102,84 @@ sed: search and replace file contents
         string globally for replacement(file content will be modified)
     sed -i 'N1,N2 s/the string for search/the string for replace/g' filename: seach 
         the string from line N1 to N2 for replacement(file content will be modified)
+        
+|: pipe character
+    command1 | command2: the output of command1 is taken as the input of command2
+    note: pipe character handles only the correct output of the previous command
+        and not handle the incorrect output
+        
+find: search for file or directory
+    note: the directory uses find command can not be a link
 ```
 
+## Output and Input redirection
 
+```
+>: standard output overwrites wirte file
+>>: standard output appends to file
 
+cat: connect file or standard input and print, this command is usually used to
+    display the content of file
+    cat << EOF: end with EOF input character as standard input
+    cat > filename: create new file and put standard input and output into the
+        filename file, end with 'ctrl+d'
+```
 
+## Remote network Command
 
+```
+scp: copy data from local host to remote server
+    format: scp [-r] file_To_Copy remote_UserName@remote_Host_Ip:targetLocation
+    
+ssh: login remote server from localhost
+    format: ssh userName@Host_Ip
+    ssh-copy-id userNmae@Host_Ip: register the local public key certificate file with
+        the remote server, and then we can login using the private key certificate
+```
+
+## Process Command
+
+```
+ps: the abbreviation of Process status, this command will list a snapshot of the
+    current processes that were running at the time the ps command was executed
+    -aux: view all processes on the system,using BS operating system format
+        (with CPU and memory information)
+        Decription of the command execution result:
+            USER:owner of process PID:id of process PPID:parent process id
+            %CPU:cpu percentage used by a process  %MEM: percentage of memory usgae
+            VSZ:the amount of virtual memory used by the process(KB)
+            RSS:the process uses physical memory
+            TTY:if it is "pts/0", means the host process is connected to the network
+            stat:process status
+            Z:zombie process   <:high priority process  N:low priority process
+            L:some page locked into memory
+            s:the leader of process(with child processes below it)
+            START:start time when process is triggered
+            TIME:the actual cpu usage time of the process
+            COMMAND: name and parameter of command
+    -ef: view all processes on the system, using Liunx standard command format
+        (with PID)
+            Description of the command execution result:
+                UID: id of user,but actual is user name
+                PID: id of process PPID:praent process id
+                C:percentage of cpu used by process
+                STIME:start time of process
+                TTY:which terminal is the process running on, if the process is
+                independent of the terminal, the system will display "?". if the
+                value is pts/0, it indicates that the host proess is connected by
+                the network
+                TIME:the time of cpu already be occupied by the process
+                CMD: name and parameter of command
+                
+    ps often used with grep to find specific process, like ps -aux | grep sshd
+    
+kill: terminate process
+     kill pid: wait for execution to finish and then terminate process(not mandatory)
+     kill -9 pid: force to terminate process
+     
+     
+top: real-time monitor process, will display the information about the processed
+    running in the current system, includes pid, memory usage and cpu usage
+
+    
+```
