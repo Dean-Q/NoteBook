@@ -110,6 +110,7 @@ sed: search and replace file contents
         
 find: search for file or directory
     note: the directory uses find command can not be a link
+    
 ```
 
 ## Output and Input redirection
@@ -180,6 +181,84 @@ kill: terminate process
      
 top: real-time monitor process, will display the information about the processed
     running in the current system, includes pid, memory usage and cpu usage
-
+    b:type keyboard "b" will highlight current running process 
+    x:type keyboard "x" will sort process with the percentage of cpu
     
+free: view the usage of system memeroy and the swap partition, and the output is very
+    similar to the memory portion of the command top
+    -b: display with byte
+    -k: display with KB, default value
+    -m: display with MB
+    -g: display with GB
+    Description of the command execution result:
+        used: the size of the used physical memory(swap partition)
+        free: the available physical memory size(swap partition)
+        shared: the amount of shared memory by multiple processes
+        buff/cache: the buffer size of disk
+        avaiable: the size of memory can be used by new applictaions
+    note: normally, the memory in swap partition is not be used unless the physical
+        memory is full
+        
+netstat: view the usage of port
+    netstat -apn | grep xx: find which process use the port xx
+```
+
+## Disk command
+
+```
+df: display the usage of each file system in Linux, includes the total capacity, 
+    used capacity, and remaining capacity of the disk partition
+    format: df -h
+
+du: view the disk space occupied by specific directory or file
+    format: du -s -h file/dir
+```
+
+## User or UserGroup Command
+
+<pre><code>su username: swicth user and keep current dirctory and enviroment variables
+<strong>
+</strong><strong>su - username: switch user and go to the username's home directory and switch
+</strong>    enviroment varibles
+    
+cat /etc/passwd: view the information of all users
+
+useradd [option] username: create a new user
+    ig: useradd -d /home/jerry  -g root -G tom,adm jerry :add user jerry and 
+        indicate /home/jerry as jerry's home dirctory, the main group is root,
+        additional groups are tom and jerry
+        useradd -s /bin/sh -u 80000 test1: add a new user test1 and specify the
+        shell program is /bin/sh and the user id is 80000 
+
+usermod [option] username: modify user, parameter usage is similar to xx
+
+userdel [option] username: delete user
+    -r: delte user and user's home directory at the same time
+    
+passwd: manage user's password
+    -l: lock account
+    -u: unlock account
+    -d: delete user's password
+    format: passwd [option] username
+    
+cat /etc/group: view the information of user group
+</code></pre>
+
+## Authority Commad
+
+```
+chmod: modify the authority of file or directory
+    -R: recursive process
+    
+chattr: add physical permissions, modify a file/folder is not allowed to be modified
+    +i: can not be modified in any way
+    +a: can only be appended, not be modified or deleted
+    + <attribute>: open permission to file or folder
+    - <attribute>: close permission to file or folder
+    +R: recursive process
+    
+lsattr: view the authority of file/folder
+    +a: view all files's attributes, includes hiding
+    +d: display folder's attributes, not the attributes of files in the directory
+    +R: recursive process
 ```
