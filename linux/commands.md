@@ -261,4 +261,30 @@ lsattr: view the authority of file/folder
     +a: view all files's attributes, includes hiding
     +d: display folder's attributes, not the attributes of files in the directory
     +R: recursive process
+    
+chown: used to manage which users and user groups own files
+    format: chown owner:group filename
+    
+sudo: sudo means super user do, it can allow common user to temporarily perform root
+    privileges, sudo also can restrict users from executing partial root permissions
+```
+
+## Package compression and decompression
+
+```
+common compressed file suffix:
+    *.gz: gzip compressed files
+    *.tar: tar command packed data,and didn't compress
+    *.tar.gz: tar command packed and gzip compressed
+    
+gzip:
+    filename: compression of source files is not retained
+    -c filename > compressed_filename(.gz): keep the source file compressed
+    -d compressed_filename(.gz): didn't keep source files decompressed
+    -cd compressed_filename(.gz) decompressed_filename: keep source files decompressed
+
+tar:
+    -cvf packaged_filename(.tar) need_packaged_filename: package files
+    -tvf packaged_filename(.tar): view the packaged files
+    -xvf packaged_filename(.tar) -C decompressed_dirname: decompress to specified dir
 ```
