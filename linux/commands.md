@@ -281,10 +281,75 @@ gzip:
     filename: compression of source files is not retained
     -c filename > compressed_filename(.gz): keep the source file compressed
     -d compressed_filename(.gz): didn't keep source files decompressed
-    -cd compressed_filename(.gz) decompressed_filename: keep source files decompressed
+    -cd compressed_filename(.gz) decompressed_filename: keep source files 
+        decompressed
 
 tar:
     -cvf packaged_filename(.tar) need_packaged_filename: package files
     -tvf packaged_filename(.tar): view the packaged files
-    -xvf packaged_filename(.tar) -C decompressed_dirname: decompress to specified dir
+    -xvf packaged_filename(.tar) -C decompressed_dirname: decompress to 
+        specified dir
+    -czvf packaged_filename(.tar.gz) need_packaged_filename: package and 
+        compress file
+    -tzvf packaged_filename(.tar.gz): view the packaged files
+    -xzvf packaged_filename(.tar.gz) -C decompressed_dirname: decompress to 
+        specified dir
+```
+
+## Package Management tool
+
+```
+rpm: Redhat package management, used to manage software package under Linux
+    advantage:
+        rpm contains the data such as compiled programs and configuration files
+            which allow user to avoid the recompilation
+        before install rpm package, will check the system's disk capacity and
+            os version to avoid incorrect installation
+        the rpm file provides information about the software version, dependecy
+            properties, software name, software usage and files contained in the
+            software, let custmore easy to understand software
+        due to software's informations are recorded in the Linux host database, 
+            it's easy to query, upgrade and uninstall
+    disadvantage:
+        the environment in which the software are installed must be consistent with
+            or equivalent to the enviroment requirements at the time of packaging
+        need to meet the software dependency attribute requirements
+        need to be careful when uninstall, don't remove the lowest layer of software
+            first, otherwise the whole system will be affected
+    note: rmp only records the dependency information, doesn't install dependent
+        software automatically
+    -ivh: install a package
+    -Uvh: upgrade the installation package
+    -e: uninstall a package
+    -qa: query installation package
+    -qR package_name: query which packages a package depends on
+    -e --test package_name: query which package depends on the package
+    -ql package_name: query rpm package path of installation
+    -qa --queryformat "%{NAME} %{INSTALLTIME}\n" | sort: distinguish rpm package is
+        installed by os or customer, if by os,installtime is 0
+    -qf command_path: find which rpm the command belongs to
+    
+    
+yum: base on rpm, and can download and install rpm package from specified server
+    and can handle dependencies and install all dependent software packages
+    automatically at once,without having to download and install them again and again
+    note:
+        yum has its own repository, also called source, download all rpm software to
+            the yum repo
+        rpm provides every software's information and dependency relationship, yum
+            analyze the information and dependencies to generate a list of installed
+            software
+        when you want to install a software, it will install dependencies first and
+            then install the software according to the list
+        all of the yum source is restored in dir /etc/yum.repos.d
+    check-update: list all of software which can be upgraded
+    update: update all of software
+    install: install specified software
+    list: list all of the softwares which can be installed
+    remove: delete the software package
+    search: search a software package
+    clean all && makecache: clean cache and then create new cache
+    -y: when prompted to select "yes" for all during installation
+    -q: doesn't shown the process during the installation
+            
 ```
