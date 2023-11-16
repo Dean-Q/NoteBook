@@ -353,3 +353,28 @@ yum: base on rpm, and can download and install rpm package from specified server
     -q: doesn't shown the process during the installation
             
 ```
+
+## Vim Editor
+
+```
+yy + p: copy the content of line where the cursor is located and paste it to the next
+    line
+yy + P: copy the content of the line where the cursor is located and paste it to the
+    last line
+3yy + P: copy the 3 lines of contents that contains the row where the cursor is
+    located and paste it to the next line
+dd: delete the row where the cursor is located
+3dd: delete 3 rows contains the row where the cursor is located
+10 x: delete the character after the cursor
+20 x: delete the character before the cursor
+G: enter the laste line of file
+gg: enter the first line of file
+
+:s/target/replace/g: replace the current line
+:%s/target/replace/g: full file replacement
+:set nu: enable line number display
+:set nonu: disable line number display
+
+i: insert data from the cursor
+o: insetr data from the next line where the cursor is located
+```
