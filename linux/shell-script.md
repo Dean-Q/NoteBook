@@ -85,7 +85,51 @@ echo \$$: $$
 
 name=haha
 # single qutoes: all character in single qutoes are common character
-echo '$name'
+echo '$name'   # will print $name
 
-# 
+# double qutoes: keep variable properties and replace it with value
+echo "$name"  # will print haha
+
+# inverted quotation marks: when a command is enclosed in inverted qutotation marks,
+# the command will be execute and results will be the value of the expression
+echo `date`  # will print Mon Dec 15 10:19:23 CST 2023
+```
+
+## Arrays
+
+```bash
+# constant list: elements are separated by spaces
+arr1=("a1" "a2" "a3")
+
+# define arrays by declare and initializes the element
+declare -a arr2=("b1" "b2" "b3")
+
+# define first and then assign the value to the element
+declare -a arr3
+arr3[0]="c1"
+arr3[1]="c2"
+
+# view the length of the array
+echo ${#arr3[*]}
+
+# read an array element
+echo ${arr1[0]}
+
+# delete an array element
+unset arr1[0]
+```
+
+## Operator
+
+```bash
+-eq # equal
+-ne # unequal
+-lt # less than
+-gt # greater than
+-le # less than or equal to
+-ge # greater than or equal to
+
+==  # compare two strings to see if they are equal
+!=  # compare two strings to see if they are unequal
+
 ```
