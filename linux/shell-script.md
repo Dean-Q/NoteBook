@@ -132,4 +132,106 @@ unset arr1[0]
 ==  # compare two strings to see if they are equal
 !=  # compare two strings to see if they are unequal
 
+!   # inverse operation
+-o  # or operation
+-a  # and operation
+&&  # short circuit and operation
+||  # short circut or operation
+
+-b file # check whether the file is a block device file
+-c file # check whether the file is the character device file
+-d file # check whether the file is a dirctory
+-f file # check whether the file is a normal file
+        # (neither a directory nor a device file)
+-r file # check whether the file is readable
+-w file # check whether the file is writable
+-x file # check whether the file is executable
+-s file # check whether the file is empty, if it isn't empty, return true
+-e file # check whether the file(includes directory) exist
+```
+
+## Conditional statement
+
+```bash
+# if else statement
+#! /bin/bash
+cmd=$1
+if [ $cmd == "start" ]; then
+        echo "start operation"
+elif [ $cmd == "stop" ]; then
+        echo "stop operation"
+elif [ $cmd == "restart" ]; then
+        echo "restart operation"
+else
+        echo "other operation"
+fi
+
+# pattern matching
+#! /bin/bash
+cmd=$1
+case $cmd in
+        "start") echo "start operation"
+                ;;
+        "stop") echo "stop operation"
+                ;;
+        "restart") echo "restart operation"
+                ;;
+        *) echo "other operation"
+                ;;
+esac
+```
+
+## loop Statement
+
+```bash
+# for in
+#! /bin/bash
+# get parameter
+base_path=$*
+arr=(`ls $base_path`)
+# traverse the array
+for f in ${arr[*]}
+do
+    if [ -f $f ]; then
+        echo "$f is a file"
+    fi
+done
+
+
+# for control variable
+#! /bin/bash
+sum=0
+count=0
+for((i=1;i<=10;i++))
+do
+    sum=$((sum+i))
+    if [ $((i%2)) -eq 0 ]; then
+        ((count++))
+    fi
+done
+echo sum:${sum}, count:${count}
+```
+
+## Function Definition
+
+```bash
+# define a function without return value
+#! /bin/bash
+fun(){
+    echo "there's a function"
+    }
+echo "function starts ..."
+fun
+echo "function compelete"
+
+
+
+# define a function withe return value
+num1=$1
+num2=$2
+funandReturn(){
+    return $(($num1+$num2))
+    }
+funandReturn
+echo "the sum of two digits is $? "
 ```
