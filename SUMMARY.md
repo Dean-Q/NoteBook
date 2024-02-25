@@ -6,5 +6,6 @@
   * [Shell Script](linux/shell-script.md)
 * [DataBase](database/README.md)
   * [NoSQL](database/nosql/README.md)
-    * [Cassandra](database/nosql/cassandra.md)
+    * [Cassandra](database/nosql/cassandra/README.md)
+      * [What is Cassandra](database/nosql/cassandra/what-is-cassandra.md)
   * [RDBMS](database/rdbms.md)
