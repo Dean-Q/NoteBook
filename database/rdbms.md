@@ -6,11 +6,11 @@ description: Relational Database Management System 关系型数据库
 
 ## Characteristics
 
-* Table structure: each table consists of two dimension, row(record) and column(field)
-* Data integrity: support data integrity convention, such as primary key, foreign key and unique convention
-* Transaction support: support transaction processing, ensure ACID(Atomicity, Consistency, Isolation, Durability) features of data
-* Relationship between data: support the establishment of relationship between data through mechanisms such as  foreign key, such as one-to-one, one-to-many, many-to-many relationships
-* Query Language: SQL provides rich syntax and functionality to support many complex operations
+* **Table structure**: each table consists of two dimension, row(record) and column(field)
+* **Data integrity**: support data integrity convention, such as primary key, foreign key and unique convention
+* **Transaction support**: support transaction processing, ensure ACID(Atomicity, Consistency, Isolation, Durability) features of data
+* **Relationship between data**: support the establishment of relationship between data through mechanisms such as  foreign key, such as one-to-one, one-to-many, many-to-many relationships
+* **Query Language**: SQL provides rich syntax and functionality to support many complex operations
 
 ## <mark style="color:green;">Pros</mark> vs <mark style="color:red;">Cons</mark>
 
