@@ -1,5 +1,16 @@
 ---
 description: Relational Database Management System 关系型数据库
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # RDBMS

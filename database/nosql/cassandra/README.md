@@ -1,7 +1,16 @@
 ---
-description: >-
-  cudb command; primary key; memetable; SSTable; partition key; cluster key and
-  so on
+description: The prophetic eye
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Cassandra
