@@ -18,8 +18,6 @@ So they developed the new storage system —— Cassandra
 
 So above all , we can know the characteristics of cassandra are _high scalability, high performance, distributed system, no single point of failure, strong fault tolerance and flexible data model_.&#x20;
 
-And actually, It is essentially a hybrid between a key-value and a column-oriented database.
-
 ## <mark style="color:red;">Q: How to understand Cassandra model based on relational model</mark>
 
 > The traditional relational model is row-store, but cassandra selected column-store, so the model is a little difference between them
@@ -108,3 +106,4 @@ Row Key: 3
 * **Schema flexibility**: allow different columns to be stored in different rows, and columns can be easily added or deleted without effecting other columns or redesigning the whole database structure
 * **Horizontal scalability**: allow data to be partitioned or shard by column, and each node is only responsible for storing part of column data, thus supporting larger data sets and high throughput
 
+So in summary,  Cassandra is essentially a hybrid between a key-value and a column-oriented database. and aim to handle storage and real-time query of large-scale data.
